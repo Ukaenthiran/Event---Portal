@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page active">
+        <div class="form-container">
+            <h1>Event Portal Login</h1>
+            <div class="user-type-selector">
+                <button id="staff-btn" class="user-btn active">Management</button>
+                <button id="student-btn" class="user-btn">Student</button>
+            </div>
+            <input type="password" id="password" placeholder="Password">
+            <button id="login-btn">Login</button>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Staff - User Information Page -->
+    <div id="staff-user-info-page" class="page">
+        <form class="form-container" id="user-info-form">
+            <h2>Management Information</h2>
+            <input type="text" id="user-name" placeholder="User Name" required>
+            <input type="tel" id="contact-details" placeholder="Contact Details" required>
+            <input type="email" id="email-id" placeholder="Email ID" required>
+            <select id="department/club" class="form-select">
+                  <option value="designation">-----Select Department/Club-----</option>
+                  <option value="BCA">BCA</option>
+                  <option value="BSC">BSC</option>
+                  <option value="ECS">ECS</option>
+                  <option value="DS">DS</option>
+                  <option value="BCOM">BCOM</option>
+                  <option value="BCOM A/F">BCOM A/F</option>
+                  <option value="BA">BA</option>
+                  <option value="BBA">BBA</option>
+                  <option value="BBA">Rotaract Club</option>
+                  <option value="BBA">Coding Club</option>
+                  <option value="BBA">NSS</option>
+                  <option value="BBA">Licture Club</option>
+                  <option value="BBA">Maths Club</option>
+                  <option value="BBA">CDC</option>
+                  <option value="BBA">Women Empowerment Cell</option>
+            </select>            
+            <select id="Designation">
+                  <option value="designation">-----Select Designation-----</option>
+                  <option value="Student">Student</option>
+                  <option value="Staff">Staff
+                  <option value="Office Management">Office Management</option>
+            </select>
+            <button type="button" class="next-btn">Next</button>
+        </form>
+    </div>
+
+    <!-- Staff - Event Details Page -->
+    <div id="staff-event-details-page" class="page">
+        <form class="form-container" id="event-details-form">
+            <h2>Event Details</h2>
+            <input type="text" id="event-title" placeholder="Event Name" required>
+            <select id="Event Type">
+                  <option value="Seminar">-----Select Event Type-----</option>
+                  <option value="Seminar">Seminar</option>
+                  <option value="Workshop">Workshop</option>
+                  <option value="Motivation Speek">Motivation Speek</option>
+                  <option value="Guest Lecturer">Guest Lecturer</option>
+            </select>
+                <select id="Event Venue">
+                    <option value="Seminar">-----Select Event Venue-----</option>
+                    <option value="Seminar Hall">Seminar Hall</option>
+                    <option value="Smart Room">Smart Room</option>
+                </select>
+            <input type="date" id="event-date" required>
+            <div class="time-picker">
+                <label>Start Time (Check-in):</label>
+                <input type="number" id="start-hour" placeholder="HH" min="1" max="12" required>
+                <input type="number" id="start-minute" placeholder="MM" min="0" max="59" required>
+                <select id="start-ampm">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
+            <div class="time-picker">
+                <label>End Time:</label>
+                <input type="number" id="end-hour" placeholder="HH" min="1" max="12" required>
+                <input type="number" id="end-minute" placeholder="MM" min="0" max="59" required>
+                <select id="end-ampm">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
+            <select id="targeted department/club" class="form-select">
+                  <option value="designation">-----Select Targeted Department/Club-----</option>
+                  <option value="BCA">BCA</option>
+                  <option value="BSC">BSC</option>
+                  <option value="ECS">ECS</option>
+                  <option value="DS">DS</option>
+                  <option value="BCOM">BCOM</option>
+                  <option value="BCOM A/F">BCOM A/F</option>
+                  <option value="BA">BA</option>
+                  <option value="BBA">BBA</option>
+                  <option value="BBA">Rotaract Club</option>
+                  <option value="BBA">Coding Club</option>
+                  <option value="BBA">NSS</option>
+                  <option value="BBA">Licture Club</option>
+                  <option value="BBA">Maths Club</option>
+                  <option value="BBA">CDC</option>
+                  <option value="BBA">Women Empowerment Cell</option>
+            </select>            
+            <input type="number" id="audience-count" placeholder="Audience Count" required>
+            <button type="button" class="next-btn">Next</button>
+        </form>
+    </div>
+
+    <!-- Staff - Resource Person Details Page -->
+    <div id="staff-resource-person-page" class="page">
+        <form class="form-container" id="resource-person-form">
+            <h2>Resource Person Details</h2>
+            <input type="text" id="resource-person-name" placeholder="Resource Person Name" required>
+            <input type="text" id="resource-person-designation" placeholder="Resource Person Designation" required>
+            <input type="text" id="resource-person-department" placeholder="Resource Person Department" required>
+            <input type="text" id="resource-person-college" placeholder="Resource Person College" required>
+            <input type="text" id="resource-person-experience" placeholder="Experience (e.g., 3 years)" required>
+            <label for="resource-person-photo">Resource Person Photo:</label>
+            <input type="file" id="resource-person-photo" accept="image/*">
+            <label for="resource-person-profile">Resource Person Profile (PDF):</label>
+            <input type="file" id="resource-person-profile" accept=".pdf">
+            <button id="submit-event-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Student - Calendar View Page -->
+    <div id="student-calendar-page" class="page">
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month-btn">&lt;</button>
+                <h2 id="month-year"></h2>
+                <button id="next-month-btn">&gt;</button>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-dates" id="calendar-dates"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

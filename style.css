@@ -1,0 +1,303 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eaf5ff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    color: #005a9e;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.user-type-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.user-btn {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.user-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Updated to include select elements */
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white; /* Ensures select has a white background */
+    font-size: 1rem; /* Consistent font size */
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: .5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.time-picker {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.time-picker label {
+    margin-bottom: 0;
+    flex-basis: 100%; /* Label takes full width */
+}
+
+/* Calendar Styles */
+.calendar-container {
+    width: 95%;
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: auto;
+}
+
+.calendar-body {
+    padding: 1rem;
+}
+
+.calendar-weekdays,
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.calendar-dates div {
+    text-align: center;
+    padding: 1rem 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.2;
+}
+
+.calendar-dates div:hover:not(.empty) {
+    background-color: #e0f7ff;
+}
+
+.calendar-dates .today {
+    background-color: #007bff;
+    color: white;
+}
+
+.calendar-dates .event {
+    background-color: #89cff0;
+    color: white;
+    font-weight: bold;
+}
+
+.empty {
+    cursor: default;
+}
+
+/* Modal and Event Card Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: transparent;
+    margin: 5% auto;
+    padding: 20px;
+    border: none;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    z-index: 1001;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    padding-left: 30px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-left: 8px solid #007bff;
+}
+
+.event-card h3 {
+    color: #007bff;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.resource-person-img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+    object-fit: cover;
+    background: #f0f0f0;
+}
+
+.event-card p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.event-card p strong {
+    display: inline-block;
+    width: 140px;
+    color: #000;
+}
+
+.event-card p a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.event-card p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .modal-content {
+        margin: 10% auto;
+        padding: 10px;
+    }
+    
+    .resource-person-img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .event-card p strong {
+        width: 120px;
+    }
+}
